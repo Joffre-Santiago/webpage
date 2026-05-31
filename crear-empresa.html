@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Azatrade - Crear Empresa</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    background:#f5f7fb;
+}
+
+header{
+    background:white;
+    height:70px;
+    display:flex;
+    align-items:center;
+    padding:0 40px;
+    box-shadow:0 2px 8px rgba(0,0,0,.08);
+}
+
+.logo{
+    font-size:30px;
+    font-weight:bold;
+    color:#315c78;
+}
+
+.container{
+    max-width:900px;
+    margin:50px auto;
+    background:white;
+    padding:50px;
+    border-radius:12px;
+    box-shadow:0 5px 25px rgba(0,0,0,.08);
+}
+
+.title{
+    text-align:center;
+    margin-bottom:10px;
+}
+
+.title h1{
+    font-size:42px;
+    color:#222;
+}
+
+.subtitle{
+    text-align:center;
+    color:#666;
+    margin-bottom:40px;
+    font-size:18px;
+}
+
+.form-row{
+    display:grid;
+    grid-template-columns:250px 1fr;
+    gap:15px;
+    align-items:center;
+    margin-bottom:18px;
+}
+
+label{
+    color:#444;
+    font-size:15px;
+}
+
+input,
+select{
+    width:100%;
+    padding:12px 15px;
+    border:1px solid #d8d8d8;
+    border-radius:8px;
+}
+
+.location{
+    display:grid;
+    grid-template-columns:1fr 1fr 1fr;
+    gap:10px;
+}
+
+.phone{
+    display:flex;
+    gap:10px;
+}
+
+.phone-code{
+    width:100px;
+}
+
+.required{
+    color:red;
+}
+
+.btn-area{
+    text-align:center;
+    margin-top:35px;
+}
+
+.btn-next{
+    border:none;
+    background:#1f4fff;
+    color:white;
+    padding:14px 60px;
+    border-radius:30px;
+    font-size:16px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.btn-next:hover{
+    opacity:.9;
+}
+
+@media(max-width:768px){
+
+    .container{
+        margin:20px;
+        padding:25px;
+    }
+
+    .title h1{
+        font-size:30px;
+    }
+
+    .form-row{
+        grid-template-columns:1fr;
+    }
+
+    .location{
+        grid-template-columns:1fr;
+    }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+    <div class="logo">Azatrade.com</div>
+</header>
+
+<div class="container">
+
+    <div class="title">
+        <h1>Empieza a vender en Azatrade.com</h1>
+    </div>
+
+    <div class="subtitle">
+        Cuéntanos un poco sobre tu negocio para conectarte con el equipo de soporte adecuado
+    </div>
+
+    <form>
+
+        <div class="form-row">
+            <label>
+                <span class="required">*</span>
+                Nombre del negocio
+            </label>
+
+            <input type="text">
+        </div>
+
+        <div class="form-row">
+            <label>
+                Página web
+            </label>
+
+            <input type="url"
+                   placeholder="https://www.miempresa.com">
+        </div>
+
+        <div class="form-row">
+            <label>
+                <span class="required">*</span>
+                Categoría de productos
+            </label>
+
+            <input type="text"
+                   placeholder="Ej: Palta Hass, Quinua, Café">
+        </div>
+
+        <div class="form-row">
+            <label>
+                <span class="required">*</span>
+                Dirección del negocio
+            </label>
+
+            <input type="text">
+        </div>
+
+        <div class="form-row">
+            <label>
+                Departamento / Provincia / Distrito
+            </label>
+
+            <div class="location">
+
+                <select>
+                    <option>Departamento</option>
+                    <option>Lima</option>
+                    <option>Piura</option>
+                    <option>La Libertad</option>
+                </select>
+
+                <select>
+                    <option>Provincia</option>
+                </select>
+
+                <select>
+                    <option>Distrito</option>
+                </select>
+
+            </div>
+        </div>
+
+        <div class="form-row">
+            <label>
+                <span class="required">*</span>
+                Teléfono de contacto
+            </label>
+
+            <div class="phone">
+
+                <input class="phone-code"
+                       placeholder="+51">
+
+                <input placeholder="999999999">
+
+            </div>
+        </div>
+
+        <div class="form-row">
+            <label>
+                <span class="required">*</span>
+                Verificación
+            </label>
+
+            <input type="text"
+                   placeholder="Ingrese código">
+        </div>
+
+<div class="btn-area">
+    <a href="configurar-empresa.html">
+        <button type="button" class="btn-next">
+            Continuar
+        </button>
+    </a>
+</div>
+
+    </form>
+
+</div>
+
+</body>
+</html>

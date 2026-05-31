@@ -1,0 +1,600 @@
+```html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EdenConnect</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f7f2;
+            color: #2d3e2d;
+            line-height: 1.6;
+        }
+
+        /* ===== HEADER / NAVBAR ===== */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 60px;
+            background-color: #ffffff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #3a7d44;
+            letter-spacing: -0.5px;
+        }
+
+        .logo span {
+            color: #2d5a2d;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #2d3e2d;
+            font-weight: 500;
+            padding: 8px 20px;
+            border-radius: 25px;
+            transition: background 0.3s;
+        }
+
+        nav a:hover {
+            background-color: #e8f0e5;
+        }
+
+        nav .btn-login {
+            background-color: #3a7d44;
+            color: #ffffff;
+            padding: 10px 28px;
+            border-radius: 25px;
+            font-weight: 600;
+        }
+
+        nav .btn-login:hover {
+            background-color: #2d5a2d;
+        }
+
+        /* ===== HERO SECTION (con imagen de fondo) ===== */
+        .hero {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 85vh;
+            padding: 60px 40px;
+            text-align: center;
+
+            /* Imagen de quinua como fondo */
+            background-image: url('quinua.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+
+            /* Efecto de parallax sutil */
+            background-attachment: fixed;
+        }
+
+        /* Overlay oscuro para legibilidad del texto */
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.55);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 850px;
+            color: #ffffff;
+        }
+
+        .hero-content h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-shadow: 0 2px 12px rgba(0, 0, 0, 0.6);
+            line-height: 1.3;
+        }
+
+        .hero-content p {
+            font-size: 1.25rem;
+            margin-bottom: 40px;
+            opacity: 0.95;
+            text-shadow: 0 1px 6px rgba(0, 0, 0, 0.5);
+        }
+
+        .search-bar {
+            display: flex;
+            justify-content: center;
+            gap: 0;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .search-bar input {
+            width: 70%;
+            padding: 14px 20px;
+            border: none;
+            border-radius: 30px 0 0 30px;
+            font-size: 1rem;
+            outline: none;
+        }
+
+        .search-bar button {
+            width: 30%;
+            padding: 14px 20px;
+            border: none;
+            border-radius: 0 30px 30px 0;
+            background-color: #3a7d44;
+            color: #ffffff;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .search-bar button:hover {
+            background-color: #2d5a2d;
+        }
+
+        /* ===== FEATURES SECTION ===== */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 30px;
+            padding: 80px 60px;
+            background-color: #ffffff;
+        }
+
+        .feature-card {
+            padding: 30px 25px;
+            border-radius: 16px;
+            background-color: #f9fbf8;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 28px rgba(0, 0, 0, 0.08);
+        }
+
+        .feature-card h3 {
+            font-size: 1.3rem;
+            color: #3a7d44;
+            margin-bottom: 12px;
+        }
+
+        .feature-card p {
+            color: #4a5a4a;
+            font-size: 0.95rem;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            text-align: center;
+            padding: 30px 60px;
+            background-color: #2d3e2d;
+            color: #d4e0d4;
+            font-size: 0.9rem;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            header {
+                padding: 16px 24px;
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            .hero {
+                min-height: 70vh;
+                padding: 40px 20px;
+                background-attachment: scroll;
+            }
+
+            .hero-content h1 {
+                font-size: 1.8rem;
+            }
+
+            .hero-content p {
+                font-size: 1rem;
+            }
+
+            .search-bar {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .search-bar input,
+            .search-bar button {
+                width: 100%;
+                border-radius: 30px;
+            }
+
+            .features {
+                padding: 40px 24px;
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ===== HEADER ===== -->
+    <header>
+        <div class="logo">Eden<span>Connect</span></div>
+        <nav>
+            <a href="#">Inicio</a>
+            <a href="#">Productos</a>
+            <a href="#">Proveedores</a>
+            <!-- 👇 Enlace actualizado a la página de inicio de sesión -->
+            <a href="iniciar-sesion-2.html" class="btn-login">Iniciar sesión</a>
+        </nav>
+    </header>
+
+    <!-- ===== HERO ===== -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>
+                La plataforma B2B que conecta micro,<br>
+                pequeños y medianos agroexportadores<br>
+                peruanos con clientes internacionales
+            </h1>
+            <p>
+                Encuentra los mejores productos peruanos y conecta
+                con proveedores verificados al instante.
+            </p>
+            <div class="search-bar">
+                <input type="text" placeholder="Busca productos o proveedores...">
+                <button>Buscar</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FEATURES ===== -->
+    <section class="features">
+        <div class="feature-card">
+            <h3>🌾 Ofertas comerciales</h3>
+            <p>Explora productos y proveedores entre miles de ofertas.</p>
+        </div>
+        <div class="feature-card">
+            <h3>✅ Calidad de productos asegurados</h3>
+            <p>Asegura la calidad de producción de proveedores verificados.</p>
+        </div>
+        <div class="feature-card">
+            <h3>📦 Solución de comercio en un mismo lugar</h3>
+            <p>Tu compra sin problemas desde el pedido hasta la entrega.</p>
+        </div>
+        <div class="feature-card">
+            <h3>📊 Decide con confianza</h3>
+            <p>Indicadores clave que ayudan a evaluar un proveedor.</p>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer>
+        <p>&copy; 2026 EdenConnect — Conectando el campo peruano con el mundo.</p>
+    </footer>
+
+</body>
+</html>
+```
+
+---
+
+## 📄 Archivo 2: `iniciar-sesion.html` (nuevo, adaptado con estilo EdenConnect)
+
+He mantenido la funcionalidad de tu login original pero con la identidad visual de EdenConnect, incluyendo la imagen de quinua de fondo:
+
+```html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar Sesión — EdenConnect</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f7f2;
+            color: #2d3e2d;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        /* ===== HEADER ===== */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 60px;
+            background-color: #ffffff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #3a7d44;
+            letter-spacing: -0.5px;
+        }
+
+        .logo span {
+            color: #2d5a2d;
+        }
+
+        .back-link {
+            text-decoration: none;
+            color: #3a7d44;
+            font-weight: 500;
+            padding: 8px 20px;
+            border-radius: 25px;
+            transition: background 0.3s;
+        }
+
+        .back-link:hover {
+            background-color: #e8f0e5;
+        }
+
+        /* ===== SECCIÓN DE LOGIN CON FONDO ===== */
+        .login-section {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: calc(100vh - 80px);
+            padding: 40px 20px;
+            background-image: url('quinua.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+
+        .login-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+            z-index: 1;
+        }
+
+        /* ===== TARJETA DE LOGIN ===== */
+        .login-card {
+            position: relative;
+            z-index: 2;
+            background-color: #ffffff;
+            border-radius: 20px;
+            padding: 48px 44px;
+            max-width: 420px;
+            width: 100%;
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+            text-align: center;
+        }
+
+        .login-card h2 {
+            font-size: 1.6rem;
+            color: #2d3e2d;
+            margin-bottom: 6px;
+        }
+
+        .login-card .subtitle {
+            font-size: 0.9rem;
+            color: #6a7a6a;
+            margin-bottom: 28px;
+        }
+
+        /* ===== IDIOMAS ===== */
+        .idiomas {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            margin-bottom: 24px;
+            font-size: 0.85rem;
+        }
+
+        .idiomas a {
+            text-decoration: none;
+            color: #6a7a6a;
+            font-weight: 500;
+            padding: 4px 12px;
+            border-radius: 12px;
+            transition: background 0.2s;
+        }
+
+        .idiomas a:hover,
+        .idiomas a.activo {
+            background-color: #e8f0e5;
+            color: #3a7d44;
+        }
+
+        /* ===== FORM ===== */
+        .form-group {
+            margin-bottom: 16px;
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #3a4a3a;
+            margin-bottom: 6px;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1.5px solid #dce4dc;
+            border-radius: 12px;
+            font-size: 0.95rem;
+            outline: none;
+            transition: border 0.3s;
+            background-color: #fafcfa;
+        }
+
+        .form-group input:focus {
+            border-color: #3a7d44;
+            background-color: #ffffff;
+        }
+
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin: 12px 0 20px;
+            font-size: 0.85rem;
+            color: #4a5a4a;
+        }
+
+        .checkbox-group input {
+            width: 16px;
+            height: 16px;
+            accent-color: #3a7d44;
+        }
+
+        /* ===== BOTÓN PRINCIPAL ===== */
+        .btn-primary {
+            width: 100%;
+            padding: 13px;
+            background-color: #3a7d44;
+            color: #ffffff;
+            border: none;
+            border-radius: 25px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .btn-primary:hover {
+            background-color: #2d5a2d;
+        }
+
+        /* ===== ENLACES EXTRA ===== */
+        .extra-links {
+            display: flex;
+            justify-content: space-between;
+            margin: 18px 0 24px;
+            font-size: 0.85rem;
+        }
+
+        .extra-links a {
+            text-decoration: none;
+            color: #3a7d44;
+            font-weight: 500;
+        }
+
+        .extra-links a:hover {
+            text-decoration: underline;
+        }
+
+        /* ===== DIVISOR ===== */
+        .divider {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin: 20px 0;
+            color: #8a9a8a;
+            font-size: 0.8rem;
+        }
+
+        .divider::before,
+        .divider::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background-color: #dce4dc;
+        }
+
+        /* ===== BOTONES SOCIALES ===== */
+        .social-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        .social-btn {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            border: 1.5px solid #dce4dc;
+            background-color: #ffffff;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #3a4a3a;
+        }
+
+        .social-btn:hover {
+            border-color: #3a7d44;
+            background-color: #f0f7f0;
+            transform: translateY(-2px);
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            header {
+                padding: 16px 24px;
+            }
+
+            .login-card {
+                padding: 32px 24px;
+            }
+
+            .login-section {
+                padding: 20px 16px;
+                background-attachment: scroll;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ===== HEADER ===== -->
+    <header>
+        <div class="logo">Eden<span>Connect</span></div>
+        <a href="index.html" class="back-link">← Volver al inicio</a>
+    </header>
+
+    <!-- ===== LOGIN ===== -->
+    <section class="login-section">
+        <div class="login-card">
+
+            <h2>Iniciar sesión</h2>
+            <p class="subtitle">Accede a tu cuenta de EdenConnect</p>
+
+            <!-- Selector de idioma -->
+            <div class="idiomas">
+                <a href="#" class="activo">Español</a>
+                <a href="#">

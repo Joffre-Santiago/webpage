@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1.4 Configurar empresa - Azatrade</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f4f6f9;
+            color: #333;
+        }
+
+        /* Indicador superior naranja */
+        .header-indicator {
+            background-color: #f39c12;
+            color: white;
+            padding: 15px 40px;
+            font-size: 24px;
+            font-weight: bold;
+            text-align: right;
+        }
+
+        /* Barra de navegación superior */
+        .navbar {
+            background-color: white;
+            padding: 15px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .logo-azatrade {
+            font-weight: bold;
+            color: #2c3e50;
+            font-size: 18px;
+        }
+
+        .title-personaliza {
+            font-size: 22px;
+            color: #555;
+        }
+
+        /* Banner Principal de la Empresa (Azul) */
+        .company-banner {
+            background-color: #2980b9;
+            color: white;
+            padding: 30px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .company-info-block {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .logo-box {
+            background-color: white;
+            padding: 15px;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .logo-box img {
+            height: 40px;
+        }
+
+        .company-details h1 {
+            font-size: 22px;
+            margin-bottom: 5px;
+        }
+
+        .tags {
+            margin-bottom: 8px;
+            font-size: 13px;
+        }
+
+        .tag-peru {
+            background-color: #c0392b;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-weight: bold;
+        }
+
+        .address {
+            font-size: 13px;
+            opacity: 0.9;
+        }
+
+        .banner-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .btn-banner {
+            background-color: rgba(255, 255, 255, 0.2);
+            border: 1px solid white;
+            color: white;
+            padding: 6px 20px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 13px;
+            text-align: center;
+            min-width: 150px;
+            transition: background 0.3s;
+        }
+
+        .btn-banner:hover {
+            background-color: white;
+            color: #2980b9;
+        }
+
+        /* Menú de pestañas secundario */
+        .tabs-menu {
+            background-color: #1f618d;
+            padding: 10px 40px;
+            display: flex;
+            gap: 25px;
+        }
+
+        .tabs-menu a {
+            color: #d4e6f1;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .tabs-menu a.active, .tabs-menu a:hover {
+            color: white;
+            font-weight: bold;
+        }
+
+        /* Contenedor Principal de Contenido */
+        .main-container {
+            max-width: 1200px;
+            margin: 30px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+        }
+
+        /* Sección de Videos/Multimedia */
+        .media-section {
+            background-color: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        .video-main {
+            width: 100%;
+            background-color: #222;
+            aspect-ratio: 16/9;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+        }
+
+        .video-thumbnails {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .video-thumb {
+            background-color: #222;
+            aspect-ratio: 16/9;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+        }
+
+        /* Lateral: Formulario de Contacto */
+        .contact-sidebar {
+            background-color: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            height: fit-content;
+        }
+
+        .contact-sidebar h3 {
+            font-size: 20px;
+            margin-bottom: 25px;
+            color: #2c3e50;
+            line-height: 1.3;
+        }
+
+        .btn-action {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 12px;
+            border: none;
+            border-radius: 25px;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+            color: white;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .btn-orange { background-color: #e67e22; }
+        .btn-light-orange { background-color: #f39c12; }
+        .btn-whatsapp { background-color: #27ae60; }
+
+        /* Sección Inferior de Productos */
+        .products-section {
+            grid-column: 1 / -1;
+            background-color: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .products-section h2 {
+            font-size: 18px;
+            color: #333;
+        }
+
+        .btn-blue {
+            background-color: #2563eb;
+            color: white;
+            border: none;
+            padding: 8px 20px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 500;
+        }
+
+        /* Responsividad para pantallas pequeñas */
+        @media (max-width: 768px) {
+            .main-container {
+                grid-template-columns: 1fr;
+            }
+            .company-banner {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .banner-buttons {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header-indicator">
+        1.4 Configurar empresa
+    </div>
+
+    <div class="navbar">
+        <div class="logo-azatrade">Azatrade.com</div>
+        <div class="title-personaliza">Personaliza tu ecommerce</div>
+    </div>
+
+    <div class="company-banner">
+        <div class="company-info-block">
+            <div class="logo-box">
+                <span style="color:#27ae60; font-weight:bold; font-size:24px;">Ágrox</span>
+            </div>
+            <div class="company-details">
+                <h1>Agroexportadora peruana SRL</h1>
+                <div class="tags">
+                    <span class="tag-peru">PE</span> | <span>2 min</span> | <span>PROVEEDOR VERIFICADO</span>
+                </div>
+                <div class="address">
+                    Departamento: Lambayeque, Provincia: Chiclayo, Distrito: Reque. <br>
+                    Panamericana norte Km 524
+                </div>
+            </div>
+        </div>
+        <div class="banner-buttons">
+            <button class="btn-banner">Póngase en contacto</button>
+            <button class="btn-banner">Chatear ahora</button>
+            <button class="btn-banner">WhatsApp</button>
+        </div>
+    </div>
+
+    <div class="tabs-menu">
+        <a href="#" class="active">La empresa</a>
+        <a href="#">Productos</a>
+        <a href="#">Perfil de la empresa</a>
+        <a href="#">Contactos</a>
+    </div>
+
+    <div class="main-container">
+        
+        <div class="media-section">
+            <div class="video-main">
+                <span>[ Video Principal - Reproductor de muestra ]</span>
+            </div>
+            <div class="video-thumbnails">
+                <div class="video-thumb"><span>[ Video Miniatura ]</span></div>
+                <div class="video-thumb"><span>[ Video Miniatura ]</span></div>
+            </div>
+        </div>
+
+        <div class="contact-sidebar">
+            <h3>Póngase en contacto con el proveedor</h3>
+            <button class="btn-action btn-orange">Póngase en contacto</button>
+            <button class="btn-action btn-light-orange">Chatear ahora</button>
+            <button class="btn-action btn-whatsapp">WhatsApp</button>
+        </div>
+
+<div class="products-section">
+    <h2>Principales productos</h2>
+    <a href="configurar-producto.html">
+        <button type="button" class="btn-blue">Crear producto</button>
+    </a>
+</div>
+
+    </div>
+
+</body>
+</html>
